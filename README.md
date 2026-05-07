@@ -4,6 +4,25 @@
 
 **Live:** [consensus-submission.vercel.app](https://consensus-submission.vercel.app)
 
+## 🎬 Demo
+
+**Demo Video (Full Flow):** [Consensus Demo Reel](https://cdn.muapi.ai/outputs/9f3d54aa24c14839bdff1ccfae881508.mp4)
+
+**Video Walkthrough:** [Seeker phone demo recording](https://cdn.muapi.ai/outputs/seeker_agentpay_final.mp4) *(no audio — Loom with narration coming soon)*
+
+### Screenshots
+
+| AgentPay on Seeker | Agent Studio on Seeker | Both Phones |
+|---------------------|----------------------|-------------|
+| ![AgentPay](https://raw.githubusercontent.com/FranklinIV94/consensus-submission/main/public/demo_screens/seeker_agentpay.png) | ![Agent Studio](https://raw.githubusercontent.com/FranklinIV94/consensus-submission/main/public/demo_screens/seeker_agent_studio.png) | ![Both](https://raw.githubusercontent.com/FranklinIV94/consensus-submission/main/public/demo_screens/phones_side_by_side.jpg) |
+
+## ⛓️ Cross-Chain Flow
+
+1. **Agent Studio (Base):** AI agent pipeline reasons, validates via Bedrock, requests x402 micropayment on Base Sepolia
+2. **AgentPay (Solana):** Human receives notification, approves/rejects payment on Solana Devnet
+3. **Settlement:** Both chains settle independently — Base handles x402 data payments, Solana handles remittance approval with escrow
+
+
 ## Overview
 
 This is the submission site for Consensus 2026 Miami, showcasing two integrated projects:

@@ -211,6 +211,82 @@ export default function Home() {
         </div>
       </section>
       
+      {/* The Team: Human + AI */}
+      <section className="py-24 px-6 bg-black/30">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            <span className="gradient-text">Built by Human + AI</span>
+          </h2>
+          <p className="text-white/40 text-center mb-16 max-w-2xl mx-auto">
+            Not just AI-assisted. This was a genuine collaboration between Franklin and his multi-agent AI infrastructure — Prospyr, Northstar, and Southstar. Every component, from smart contracts to deployment pipelines, was architected and executed as a team.
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Human card */}
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition" />
+              <div className="relative glass rounded-2xl p-8">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-3xl mb-6">
+                  👤
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Franklin Bryant IV</h3>
+                <p className="text-purple-400 text-sm mb-4">Architect & Decision Maker</p>
+                <p className="text-white/60 text-sm leading-relaxed mb-4">
+                  Directs the work. Defines the architecture. Makes the final calls. Brings domain expertise in business operations, data security, and AI-accelerated development.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Business Strategy', 'System Architecture', 'Quality Control'].map(skill => (
+                    <span key={skill} className="px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-xs">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
+            {/* AI Agent card */}
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition" />
+              <div className="relative glass rounded-2xl p-8">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-3xl mb-6">
+                  🤖
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Prospyr + Northstar</h3>
+                <p className="text-cyan-400 text-sm mb-4">Execution & Operations</p>
+                <p className="text-white/60 text-sm leading-relaxed mb-4">
+                  Franklin&apos;s AI team. Handles coding, deployment, research, memory, and orchestration. Built the Anchor programs, wired the AWS CDK stack, deployed the frontends, and generated all AI video assets.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Smart Contracts', 'AWS Infrastructure', 'Frontend Dev', 'Video Generation'].map(skill => (
+                    <span key={skill} className="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Collaboration proof */}
+          <div className="mt-12 glass rounded-2xl p-6 text-center">
+            <p className="text-white/40 text-sm mb-4">How the collaboration actually worked:</p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
+              {[
+                { emoji: '💭', text: 'Franklin defines the outcome' },
+                { emoji: '⚙️', text: 'AI agents architect and build' },
+                { emoji: '🔍', text: 'Franklin reviews and approves' },
+                { emoji: '🚀', text: 'AI deploys and documents' },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5">
+                  <span>{item.emoji}</span>
+                  <span className="text-white/60">{item.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* The Problem */}
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
@@ -352,6 +428,57 @@ export default function Home() {
         </div>
       </section>
       
+      {/* Infrastructure Section */}
+      <section className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            <span className="gradient-text">AI Infrastructure</span>
+          </h2>
+          <p className="text-white/40 text-center mb-16">The agentic pipeline behind the build</p>
+          
+          <div className="glass rounded-2xl p-8">
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { 
+                  name: 'Prospyr', 
+                  role: 'Cloud Gateway',
+                  desc: 'Handles email, WhatsApp, and external communications. Production deployments.',
+                  color: 'from-purple-500 to-pink-500'
+                },
+                { 
+                  name: 'Northstar', 
+                  role: 'Heavy Lifting',
+                  desc: 'Local inference, Obsidian vault, research, and deep work. This machine.',
+                  color: 'from-cyan-500 to-blue-500'
+                },
+                { 
+                  name: 'Southstar', 
+                  role: 'Office Compute',
+                  desc: 'GPU workloads, dashboard rendering, and resource-intensive tasks.',
+                  color: 'from-green-500 to-emerald-500'
+                },
+              ].map((agent, i) => (
+                <div key={i} className="text-center">
+                  <div className={`w-16 h-16 mx-auto rounded-full bg-gradient-to-br ${agent.color} flex items-center justify-center text-2xl mb-4`}>
+                    🤖
+                  </div>
+                  <h3 className="font-bold text-white mb-1">{agent.name}</h3>
+                  <p className="text-xs text-purple-400 mb-3">{agent.role}</p>
+                  <p className="text-white/50 text-sm">{agent.desc}</p>
+                </div>
+              ))}
+            </div>
+            
+            <div className="mt-8 pt-8 border-t border-white/10 text-center">
+              <p className="text-white/40 text-sm">
+                All three agents share memory, coordinate via sessions, and operate under Franklin&apos;s oversight. 
+                When you see the demo running — that&apos;s the team.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* CTA */}
       <section className="py-24 px-6">
         <div className="max-w-3xl mx-auto text-center">
@@ -378,6 +505,9 @@ export default function Home() {
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-white/40 text-sm">
             Built for <span className="text-purple-400">Consensus 2026</span> • Miami, FL
+          </div>
+          <div className="text-white/40 text-sm">
+            Human + AI Collaboration
           </div>
           <div className="flex items-center gap-4">
             <a href="https://github.com/FranklinIV94" target="_blank" rel="noopener"

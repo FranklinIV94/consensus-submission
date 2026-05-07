@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Agents That Pay Their Bills — Consensus 2026 Miami
 
-## Getting Started
+> Two hackathon submissions. One integrated narrative. Agent Studio initiates on Base — AgentPay approves on Solana.
 
-First, run the development server:
+**Live:** [consensus-submission.vercel.app](https://consensus-submission.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This is the submission site for Consensus 2026 Miami, showcasing two integrated projects:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **AgentPay Solana** — The human control layer. Set spending limits, approve or reject AI agent transactions from your phone. One tap, instant settlement on Solana.
+2. **Agent Studio** — The AI agent side. Multi-agent pipeline that reasons, validates risk via AWS Bedrock, and settles x402 payments on Base.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Together = full-stack agentic commerce.
 
-## Learn More
+## Key Numbers
 
-To learn more about Next.js, take a look at the following resources:
+| Metric | Value |
+|--------|-------|
+| On-chain instructions | 8 |
+| AWS API endpoints | 11 |
+| CloudFormation resources | 62+ |
+| Settlement speed | <400ms |
+| Chains | Solana + Base |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Solana Anchor** — Smart contracts for agent wallets, spending limits, and payment approval
+- **Next.js 14** — Frontend for both apps
+- **AWS Lambda + CDK** — Serverless backend for agent request processing
+- **AWS Bedrock Nova Pro** — LLM risk evaluation
+- **Coinbase Wallet SDK** — Smart wallet on Base Sepolia
+- **DeepSeek AI** — LLM reasoning for payment requests
+- **Firebase** — Real-time state management
+- **x402 Protocol** — HTTP 402 micropayments on Base
 
-## Deploy on Vercel
+## Live Apps
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **AgentPay:** [agentpay-solana.vercel.app](https://agentpay-solana.vercel.app) — Solana Seeker track
+- **Agent Studio:** [agent-studio-fawn.vercel.app](https://agent-studio-fawn.vercel.app) — Coinbase + AWS Agentic track
+- **Submission Site:** [consensus-submission.vercel.app](https://consensus-submission.vercel.app)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Built By
+
+**Franklin Bryant IV** — Architect & Decision Maker  
+**Prospyr + Northstar** — AI Execution & Operations
+
+Human defines outcome → AI agents build → Human reviews → AI deploys.
+
+## License
+
+MIT

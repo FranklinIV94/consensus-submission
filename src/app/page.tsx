@@ -223,7 +223,7 @@ export default function Home() {
 
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-2xl border-b border-white/5">
-        <div className="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 py-3 md:py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
             <span className="text-sm font-medium text-white/80 tracking-wide">Consensus 2026 · Miami</span>
@@ -260,20 +260,19 @@ export default function Home() {
               style={{ maxHeight: '72vh', objectFit: 'cover' }}
             />
             {/* Title overlay at bottom of video */}
-            <div className="absolute bottom-0 left-0 right-0 z-30 p-10 pb-8">
+            <div className="absolute bottom-0 left-0 right-0 z-30 p-5 md:p-10 pb-4 md:pb-8">
               <div className="flex items-center gap-3 mb-4">
-                <span className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/20 text-xs text-white/70 backdrop-blur-md font-medium">
+                <span className="px-2.5 py-1 md:px-3 md:py-1.5 rounded-lg bg-white/10 border border-white/20 text-[10px] md:text-xs text-white/70 backdrop-blur-md font-medium">
                   Miami Beach · Consensus 2026
                 </span>
               </div>
-              <h1 className="text-5xl md:text-7xl font-black leading-[1.02] mb-4">
-                <span className="text-white">AI Agents</span>
-                <br />
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-black leading-[1.02] mb-3 md:mb-4">
+                <span className="text-white">AI Agents</span>{' '}
                 <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                   That Pay Their Bills
                 </span>
               </h1>
-              <p className="text-lg text-white/40 max-w-xl leading-relaxed">
+              <p className="text-sm md:text-lg text-white/40 max-w-xl leading-relaxed">
                 Two hackathon submissions. One integrated narrative. Agent Studio initiates on Base — AgentPay approves on Solana.
               </p>
             </div>
@@ -286,9 +285,9 @@ export default function Home() {
               { stat: '11', label: 'AWS API endpoints' },
               { stat: '62+', label: 'CloudFormation resources' },
             ].map((item, i) => (
-              <div key={i} className="bg-black/70 backdrop-blur-xl px-10 py-8 text-center border border-white/5">
-                <div className="stat-n mb-2">{item.stat}</div>
-                <div className="text-xs text-white/30 uppercase tracking-widest">{item.label}</div>
+              <div key={i} className="bg-black/70 backdrop-blur-xl px-3 py-4 md:px-10 md:py-8 text-center border border-white/5">
+                <div className="stat-n mb-1 md:mb-2">{item.stat}</div>
+                <div className="text-[10px] md:text-xs text-white/30 uppercase tracking-wider md:tracking-widest">{item.label}</div>
               </div>
             ))}
           </div>

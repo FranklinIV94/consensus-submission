@@ -263,7 +263,7 @@ export default function Home() {
             <div className="absolute bottom-0 left-0 right-0 z-30 p-10 pb-8">
               <div className="flex items-center gap-3 mb-4">
                 <span className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/20 text-xs text-white/70 backdrop-blur-md font-medium">
-                  Miami Beach · AI-generated via Veo 3.1
+                  Miami Beach · Consensus 2026
                 </span>
               </div>
               <h1 className="text-5xl md:text-7xl font-black leading-[1.02] mb-4">

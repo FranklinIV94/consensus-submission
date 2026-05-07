@@ -251,43 +251,41 @@ export default function Home() {
             {/* Video fills the container */}
             <video
               src={VIDEOS.miami}
-              className="w-full block"
+              className="w-full block md:min-h-[40vh]"
               autoPlay
               muted
               loop
               playsInline
               preload="metadata"
-              style={{ maxHeight: '72vh', objectFit: 'cover' }}
+              style={{ maxHeight: '40vh', objectFit: 'cover' }}
             />
             {/* Title overlay at bottom of video */}
-            <div className="absolute bottom-0 left-0 right-0 z-30 p-5 md:p-10 pb-4 md:pb-8">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="px-2.5 py-1 md:px-3 md:py-1.5 rounded-lg bg-white/10 border border-white/20 text-[10px] md:text-xs text-white/70 backdrop-blur-md font-medium">
-                  Miami Beach · Consensus 2026
-                </span>
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-black leading-[1.02] mb-3 md:mb-4">
-                <span className="text-white">AI Agents</span>{' '}
+            <div className="absolute bottom-0 left-0 right-0 z-30 p-6 md:p-10 pb-5 md:pb-8">
+              <span className="inline-block px-2.5 py-1 md:px-3 md:py-1.5 rounded-lg bg-white/10 border border-white/20 text-[10px] md:text-xs text-white/70 backdrop-blur-md font-medium mb-3 md:mb-4">
+                Miami Beach · Consensus 2026
+              </span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black leading-tight md:leading-[1.02] mb-2 md:mb-4">
+                <span className="text-white">AI Agents </span>
                 <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                   That Pay Their Bills
                 </span>
               </h1>
-              <p className="text-sm md:text-lg text-white/40 max-w-xl leading-relaxed">
+              <p className="text-xs md:text-lg text-white/40 max-w-md md:max-w-xl leading-relaxed hidden sm:block">
                 Two hackathon submissions. One integrated narrative. Agent Studio initiates on Base — AgentPay approves on Solana.
               </p>
             </div>
           </div>
 
           {/* Stats row — gradient fill numbers */}
-          <div className="grid grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden hero-animate-delay-1">
+          <div className="grid grid-cols-3 gap-2 md:gap-px bg-transparent md:bg-white/10 rounded-2xl md:overflow-hidden hero-animate-delay-1 mt-8 md:mt-0">
             {[
               { stat: '8', label: 'On-chain instructions' },
               { stat: '11', label: 'AWS API endpoints' },
               { stat: '62+', label: 'CloudFormation resources' },
             ].map((item, i) => (
-              <div key={i} className="bg-black/70 backdrop-blur-xl px-3 py-4 md:px-10 md:py-8 text-center border border-white/5">
-                <div className="stat-n mb-1 md:mb-2">{item.stat}</div>
-                <div className="text-[10px] md:text-xs text-white/30 uppercase tracking-wider md:tracking-widest">{item.label}</div>
+              <div key={i} className="bg-black/50 md:bg-black/70 backdrop-blur-xl px-4 py-5 md:px-10 md:py-8 text-center rounded-xl md:rounded-none border border-white/5">
+                <div className="stat-n mb-1 md:mb-2 text-2xl md:text-base">{item.stat}</div>
+                <div className="text-[10px] md:text-xs text-white/30 uppercase tracking-wider md:tracking-widest leading-tight">{item.label}</div>
               </div>
             ))}
           </div>

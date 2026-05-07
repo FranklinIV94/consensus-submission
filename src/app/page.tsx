@@ -23,6 +23,12 @@ const PROJECTS = [
     color: 'from-purple-500 to-pink-500',
     borderColor: 'border-purple-500/30',
     video: VIDEOS.agentpay,
+    screenshot: 'https://agent-studio-fawn.vercel.app/demo_screens/agentpay_hero.png',
+    steps: [
+      { label: 'Agent requests payment', desc: 'AI agent submits tx on-chain' },
+      { label: 'Human gets alert', desc: 'Seeker phone notification' },
+      { label: 'One tap approve/reject', desc: 'Instant on-chain settlement' },
+    ],
   },
   {
     id: 'studio',
@@ -36,6 +42,13 @@ const PROJECTS = [
     color: 'from-cyan-500 to-blue-500',
     borderColor: 'border-cyan-500/30',
     video: VIDEOS.agentstudio,
+    screenshot: 'https://agent-studio-fawn.vercel.app/demo_screens/studio_hero.png',
+    steps: [
+      { label: 'Director', desc: 'Parses intent with LLM' },
+      { label: 'Quant', desc: 'Analyzes markets on Base' },
+      { label: 'Risk (Bedrock)', desc: 'Validates via Nova Pro' },
+      { label: 'Execution', desc: 'Settles x402 on-chain' },
+    ],
   },
 ]
 
@@ -43,65 +56,95 @@ function VideoPlayer({ src }: { src: string }) {
   const ref = useRef<HTMLVideoElement>(null)
   
   return (
-    <div className="relative rounded-2xl overflow-hidden bg-black/60 border border-white/10">
+    <div className="relative rounded-2xl overflow-hidden bg-black border border-white/10">
       <video
         ref={ref}
         src={src}
-        className="w-full aspect-video"
+        className="w-full aspect-video object-cover"
         controls
-        muted
         playsInline
+        preload="metadata"
       />
     </div>
   )
 }
 
 function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
-  const [showVideo, setShowVideo] = useState(false)
+  const [expanded, setExpanded] = useState(false)
   
   return (
-    <div className="relative group">
-      <div className={`absolute -inset-0.5 bg-gradient-to-r ${project.color} rounded-2xl blur opacity-10 group-hover:opacity-20 transition duration-500`} />
-      <div className="relative bg-black/60 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
-        {/* Track badge */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-2">
-            <span className="flex h-2 w-2 rounded-full bg-green-400" />
-            <span className="text-xs font-medium text-white/50 uppercase tracking-wider">{project.track}</span>
+    <div className="bg-black/40 rounded-2xl p-6 border border-white/5">
+      {/* Header */}
+      <div className="flex items-start justify-between mb-4">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="h-2 w-2 rounded-full bg-green-400" />
+            <span className="text-xs text-white/30 uppercase tracking-wider">{project.track}</span>
           </div>
-          <a href={`https://${project.live}`} target="_blank" rel="noopener"
-             className="text-xs text-white/30 hover:text-white/60 transition flex items-center gap-1">
-            ↗ {project.live}
-          </a>
+          <h3 className="text-xl font-bold text-white">{project.name}</h3>
+          <p className="text-sm text-white/40 mt-0.5">{project.tagline}</p>
         </div>
-        
-        {/* Title */}
-        <h3 className="text-2xl font-bold text-white mb-1">{project.name}</h3>
-        <p className="text-sm text-white/40 mb-5">{project.tagline}</p>
-        
-        {/* Description */}
-        <p className="text-white/60 text-sm leading-relaxed mb-6">{project.description}</p>
-        
-        {/* Stack */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.stack.map(tech => (
-            <span key={tech} className="px-3 py-1 rounded-full bg-white/5 text-xs text-white/40 border border-white/5">
-              {tech}
-            </span>
+      </div>
+      
+      {/* Description */}
+      <p className="text-white/50 text-sm leading-relaxed mb-5">{project.description}</p>
+      
+      {/* Pipeline Steps */}
+      <div className="mb-5">
+        <p className="text-xs text-white/20 uppercase tracking-widest mb-3">How it works</p>
+        <div className="space-y-2">
+          {project.steps.map((step, i) => (
+            <div key={i} className="flex items-center gap-3">
+              <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium shrink-0 ${
+                i === 0 ? 'bg-purple-500/20 text-purple-400' :
+                i === project.steps.length - 1 ? 'bg-green-500/20 text-green-400' :
+                'bg-white/5 text-white/40'
+              }`}>
+                {i + 1}
+              </div>
+              <div>
+                <span className="text-sm text-white/70">{step.label}</span>
+                <span className="text-xs text-white/30 ml-1">— {step.desc}</span>
+              </div>
+            </div>
           ))}
         </div>
-        
-        {/* Video or CTA */}
-        {showVideo ? (
+      </div>
+      
+      {/* Tech stack */}
+      <div className="flex flex-wrap gap-1.5 mb-5">
+        {project.stack.map(tech => (
+          <span key={tech} className="px-2 py-0.5 rounded bg-white/5 text-xs text-white/30">
+            {tech}
+          </span>
+        ))}
+      </div>
+      
+      {/* Video toggle */}
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className={`w-full py-2.5 rounded-xl border text-sm font-medium transition flex items-center justify-center gap-2 ${
+          expanded
+            ? 'border-white/10 text-white/40'
+            : `bg-gradient-to-r ${project.color} text-white border-transparent`
+        }`}
+      >
+        {expanded ? 'Close Video' : '▶ Watch Demo'}
+      </button>
+      
+      {/* Expanded video */}
+      {expanded && (
+        <div className="mt-4">
           <VideoPlayer src={project.video} />
-        ) : (
-          <button
-            onClick={() => setShowVideo(true)}
-            className={`w-full py-3 rounded-xl bg-gradient-to-r ${project.color} font-medium text-white hover:opacity-90 transition flex items-center justify-center gap-2 text-sm`}
-          >
-            ▶ Watch in Action
-          </button>
-        )}
+        </div>
+      )}
+      
+      {/* Live link */}
+      <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
+        <a href={`https://${project.live}`} target="_blank" rel="noopener"
+           className="text-xs text-white/30 hover:text-white/60 transition">
+          ↗ {project.live}
+        </a>
       </div>
     </div>
   )
@@ -171,13 +214,15 @@ export default function Home() {
               <span className="text-xs text-white/20">·</span>
               <span className="text-xs text-white/30">Miami · AgentPay · Agent Studio</span>
             </div>
-            <div className="rounded-2xl overflow-hidden border border-white/10">
+            <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
               <video
-                src="/videos/consensus_demo_reel.mp4"
-                className="w-full"
+                src="https://cdn.muapi.ai/outputs/9f3d54aa24c14839bdff1ccfae881508.mp4"
+                className="w-full block"
                 controls
-                muted
                 playsInline
+                preload="metadata"
+                poster=""
+                style={{ maxHeight: '70vh' }}
               />
             </div>
           </div>

@@ -36,3 +36,8 @@ yarn-error.log*
 next-env.d.ts
 public/videos/consensus_demo_reel.mp4
 public/videos/consensus_demo_reel.mp4
+
+# Demo videos (streamed from CDN)
+public/demo_screens/*.mp4
+public/videos/demo_from_seeker.mp4
+public/VIDEO_ASSETS.md
